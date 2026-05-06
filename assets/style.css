@@ -1,30 +1,33 @@
-/* Preview minimalista — leitura tipo artigo premium (Stripe blog / iA / Notion docs) */
+/* Preview minimalista — pagina elegante tipo Stripe Press / Apple Newsroom / iA */
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
 
 :root {
   --ink: #1f1d1b;
-  --ink-soft: #4a4744;
+  --ink-soft: #3a3835;
   --muted: #807a73;
+  --accent-muted: #8b6f5c;
   --rule: #e8e3dc;
-  --bg: #fffdfa;
-  --surface: #f8f5ef;
-  --accent: #b07a5a;     /* terracota suave */
+  --rule-soft: #efeae3;
+  --bg: #f8f6f2;            /* off-white quente */
+  --paper: #ffffff;          /* container central */
+  --surface: #fafaf7;        /* cards, blockquote */
+  --surface-toc: #f8f5ef;
+  --accent: #b07a5a;         /* terracota suave */
   --accent-soft: #c9a98e;
   --serif: "Source Serif 4", "Iowan Old Style", "Apple Garamond", Georgia, "Times New Roman", serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; background: var(--bg); }
 
 body {
   font-family: var(--sans);
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem 5rem;
-  line-height: 1.7;
-  color: var(--ink);
+  margin: 0;
+  padding: 0;
+  line-height: 1.75;
+  color: var(--ink-soft);
   background: var(--bg);
   font-size: 17px;
   font-feature-settings: "kern", "liga";
@@ -32,48 +35,129 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Tipografia — serif para titulos, sans para corpo */
+/* === Container central — paper sobre off-white === */
+.page,
+body > nav,
+body > .tag,
+body > h1,
+body > h2,
+body > h3,
+body > h4,
+body > p,
+body > ul,
+body > ol,
+body > div,
+body > blockquote,
+body > table,
+body > hr,
+body > footer,
+body > section,
+body > main {
+  /* placeholder; real layout via .page wrapper inserido nos htmls */
+}
+
+/* Quando os htmls usam wrapper .page */
+.page {
+  max-width: 800px;
+  margin: 2rem auto 5rem;
+  background: var(--paper);
+  padding: 4rem 3rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.02);
+  border-radius: 0;
+}
+
+/* Fallback: HTMLs sem wrapper ainda funcionam — body simula container */
+body:not(:has(.page)) {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 3rem 5rem;
+  background: var(--paper);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* === Tipografia === */
 h1, h2, h3, h4 {
   font-family: var(--serif);
   color: var(--ink);
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
 }
 
 h1 {
-  font-size: 2.25rem;
-  margin: 1rem 0 1.25rem;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  font-size: 3rem;
+  margin: 0 0 1.25rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
 h2 {
-  font-size: 1.6rem;
-  margin: 3.5rem 0 1rem;
-  padding-top: 2.5rem;
+  font-size: 1.85rem;
+  font-weight: 500;
+  margin: 4rem 0 1.25rem;
+  padding-top: 2rem;
   border-top: 1px solid var(--rule);
+  line-height: 1.2;
 }
 
 h3 {
-  font-size: 1.2rem;
-  margin: 2rem 0 0.6rem;
+  font-family: var(--sans);
+  font-size: 1.25rem;
   font-weight: 600;
+  margin: 2.5rem 0 0.6rem;
+  letter-spacing: -0.005em;
+  color: var(--ink);
 }
 
 h4 {
-  font-size: 1.05rem;
-  margin: 1.5rem 0 0.4rem;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.75rem 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+}
+
+p { margin: 0.85rem 0; color: var(--ink-soft); }
+strong { color: var(--ink); font-weight: 600; }
+
+ul, ol { padding-left: 1.4rem; margin: 0.85rem 0; color: var(--ink-soft); }
+li { margin: 0.45rem 0; }
+
+/* === Hero (primeira secao com tag + h1 + lead + hr) === */
+.hero {
+  padding-bottom: 3rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+.hero .tag {
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  margin-top: 0;
+}
+.hero .lead {
+  font-size: 1.2rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0.5rem 0 1.5rem;
+  font-weight: 400;
+}
+
+/* === Tag — uppercase tracked === */
+.tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   font-weight: 600;
 }
 
-p { margin: 0.75rem 0; color: var(--ink-soft); }
-strong { color: var(--ink); font-weight: 600; }
-
-ul, ol { padding-left: 1.4rem; margin: 0.75rem 0; color: var(--ink-soft); }
-li { margin: 0.4rem 0; }
-
-/* Links — sublinhado fino, accent terracota */
+/* === Links === */
 a {
   color: var(--accent);
   text-decoration: underline;
@@ -87,54 +171,59 @@ a:hover {
   text-decoration-color: var(--ink);
 }
 
-/* Nav topo — discreto, espacado */
+/* === Nav topo — centralizado, dot separator === */
 nav {
   border-bottom: 1px solid var(--rule);
-  padding-bottom: 1.25rem;
-  margin-bottom: 2.5rem;
-  font-size: 0.875rem;
+  padding: 1.5rem 0;
+  margin: 0 0 3rem;
   font-family: var(--sans);
+  font-size: 0.875rem;
+  text-align: center;
   letter-spacing: 0.01em;
 }
 nav a {
-  margin-right: 1.25rem;
   display: inline-block;
-  margin-bottom: 0.35rem;
+  margin: 0 0.65rem;
   color: var(--muted);
   text-decoration: none;
   font-weight: 500;
+  position: relative;
+}
+nav a + a::before {
+  content: "·";
+  position: absolute;
+  left: -0.7rem;
+  color: var(--rule);
+  font-weight: 400;
 }
 nav a:hover {
   color: var(--ink);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
+}
+nav a.active {
+  color: var(--accent);
+  font-weight: 600;
 }
 
-/* Tag de pagina (label superior discreto) */
-.tag {
-  display: inline-block;
-  font-size: 0.75rem;
-  color: var(--muted);
-  margin-bottom: 1.25rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-/* CTA — links sublinhados em accent, nao botoes */
+/* === CTAs (links sublinhados) === */
 .cta {
-  margin: 1.5rem 0 2rem;
+  margin: 1.75rem 0 2.25rem;
+  font-family: var(--sans);
   font-size: 0.95rem;
 }
 .cta a {
   margin-right: 1.5rem;
   font-weight: 500;
 }
-.cta a + a { color: var(--muted); text-decoration-color: var(--rule); }
-.cta a + a:hover { color: var(--ink); text-decoration-color: var(--ink); }
+.cta a + a {
+  color: var(--muted);
+  text-decoration-color: var(--rule);
+}
+.cta a + a:hover {
+  color: var(--ink);
+  text-decoration-color: var(--ink);
+}
 
-/* Microcopy/note */
+/* === Note discreta === */
 .note {
   font-size: 0.9rem;
   color: var(--muted);
@@ -142,156 +231,251 @@ nav a:hover {
   margin: 0.5rem 0;
 }
 
-/* Tabelas — muito leves */
+/* Texto de apoio (preco, duracao) */
+.support, .meta-info {
+  color: var(--accent-muted);
+  font-weight: 500;
+}
+
+/* === Tabelas === */
 table {
   border-collapse: collapse;
   width: 100%;
-  margin: 1.25rem 0;
+  margin: 1.5rem 0;
   font-size: 0.95rem;
 }
 th, td {
-  border-bottom: 1px solid var(--rule);
-  padding: 0.75rem 0.5rem;
+  padding: 0.75rem 0.6rem;
   text-align: left;
   vertical-align: top;
+  border-bottom: 1px solid var(--rule);
 }
 th {
   background: transparent;
-  font-weight: 600;
   color: var(--ink);
-  font-size: 0.8rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border-bottom: 1px solid var(--ink);
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid var(--ink);
   padding-bottom: 0.6rem;
 }
 td { color: var(--ink-soft); }
 tr:last-child td { border-bottom: 0; }
 
-/* Blockquote elegante */
+/* === Blockquote === */
 blockquote {
-  border-left: 2px solid var(--accent);
-  margin: 1.5rem 0;
-  padding: 0.25rem 0 0.25rem 1.25rem;
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  margin: 1.75rem 0;
+  padding: 2rem;
   color: var(--ink-soft);
   font-family: var(--serif);
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.6;
 }
 blockquote cite {
   display: block;
-  margin-top: 0.5rem;
+  margin-top: 0.85rem;
   font-family: var(--sans);
   font-style: normal;
   font-size: 0.85rem;
-  color: var(--muted);
+  font-weight: 500;
+  color: var(--accent-muted);
+  letter-spacing: 0.02em;
 }
 
-/* HR discreto */
+/* === HR === */
 hr {
   border: 0;
   border-top: 1px solid var(--rule);
-  margin: 2.5rem 0;
+  margin: 3rem 0;
 }
 
-/* Footer */
+/* === Footer === */
 footer {
-  margin-top: 4rem;
-  padding-top: 1.5rem;
+  margin-top: 6rem;
+  padding-top: 2rem;
   border-top: 1px solid var(--rule);
+  font-family: var(--sans);
   font-size: 0.8rem;
   color: var(--muted);
-  font-family: var(--sans);
-  line-height: 1.6;
+  line-height: 1.7;
+  text-align: center;
 }
 
-/* Placeholder (a confirmar) */
+/* === Placeholder === */
 .placeholder {
   color: var(--muted);
   font-style: italic;
   background: var(--surface);
-  padding: 0.15rem 0.4rem;
+  padding: 0.18rem 0.45rem;
   border-radius: 2px;
   font-size: 0.95em;
 }
 
-/* === Loja: produto com diferenciacao discreta === */
-/* H3 dentro de cat-* recebe leve borda lateral */
-[id^="cat-"] ~ h3,
+/* === Loja: cards de produto === */
+.product {
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  padding: 1.5rem 1.75rem;
+  margin: 0 0 1.5rem;
+}
 .product h3 {
-  /* padrao herdado — overrides via container */
+  margin: 0 0 0.5rem;
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+.product p {
+  margin: 0.4rem 0;
+}
+.product .price {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0.25rem 0 0.5rem;
+}
+.product .duration {
+  color: var(--accent-muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.product .product-cta {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent);
 }
 
-/* Cada produto: o paragrafo logo apos o h3 dentro de uma categoria
-   ganha um leve recuo + borda esquerda. Como nao temos wrapper,
-   aplicamos via adjacency. Para garantir uniformidade adicionamos
-   classe .product-card via instructions abaixo se quisermos.
-   Por ora, tratamos via h3 + p (selector geral funciona em loja). */
-
+/* Fallback automatico: h3 + p adjacente nas listagens da loja vira card */
 main h3 + p,
+.shop h3 + p,
 body > h3 + p {
-  border-left: 2px solid var(--rule);
-  padding: 0.5rem 0 0.5rem 1rem;
-  margin-left: 0;
-  background: linear-gradient(to right, var(--surface) 0%, transparent 60%);
-  border-radius: 0 2px 2px 0;
-}
-main h3 + p:hover,
-body > h3 + p:hover {
-  border-left-color: var(--accent-soft);
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  margin: 0.4rem 0 1.4rem;
 }
 
-/* Preco em destaque sutil dentro do paragrafo de produto */
-strong + em, em.price { color: var(--accent); }
+/* preco em destaque */
+em.price, strong.price, span.price {
+  color: var(--accent);
+  font-weight: 600;
+  font-style: normal;
+}
 
-/* TOC da loja (lista de categorias) — duas colunas no desktop */
-ol#toc, body > h2#categorias + ol {
+/* === TOC da loja === */
+.toc-box,
+ol#toc,
+body > h2#categorias + ol {
+  background: var(--surface-toc);
+  padding: 2rem;
+  border-radius: 4px;
+  list-style: none;
+  padding-left: 2rem;
   columns: 2;
   column-gap: 2rem;
-  list-style-position: inside;
-  padding-left: 0;
+  margin: 1.5rem 0 2.5rem;
 }
-@media (max-width: 640px) {
-  ol#toc, body > h2#categorias + ol { columns: 1; }
-}
+.toc-box li,
+ol#toc li,
 body > h2#categorias + ol li {
   break-inside: avoid;
   margin: 0.45rem 0;
-  padding: 0.15rem 0;
+  padding: 0.2rem 0;
   border-bottom: 1px dotted var(--rule);
+  list-style: none;
+  counter-increment: cat;
+  position: relative;
+  padding-left: 1.5rem;
 }
+.toc-box li::before,
+ol#toc li::before,
+body > h2#categorias + ol li::before {
+  content: counter(cat) ".";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+ol#toc, body > h2#categorias + ol { counter-reset: cat; }
+
+.toc-box li a,
+ol#toc li a,
 body > h2#categorias + ol li a {
   text-decoration: none;
   color: var(--ink-soft);
+  font-family: var(--sans);
   font-weight: 500;
   font-size: 0.95rem;
 }
+.toc-box li a:hover,
+ol#toc li a:hover,
 body > h2#categorias + ol li a:hover {
   color: var(--accent);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
 }
 
-/* H2 da loja sem regra superior quando logo apos nav */
-nav + .tag + h1 + p + .cta + h2,
-nav + .tag + h1 { /* mantem default */ }
-
-/* Mobile: ajustes de tipografia */
 @media (max-width: 640px) {
-  body {
-    font-size: 16px;
-    padding: 1.5rem 1.25rem 4rem;
-  }
-  h1 { font-size: 1.85rem; }
-  h2 { font-size: 1.4rem; margin-top: 2.75rem; padding-top: 2rem; }
-  h3 { font-size: 1.1rem; }
-  nav a { margin-right: 0.85rem; font-size: 0.85rem; }
+  .toc-box, ol#toc, body > h2#categorias + ol { columns: 1; }
 }
 
-/* Selecao de texto */
+/* "Voltar ao topo" fixo === */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 0.5rem 0.9rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.back-to-top:hover {
+  color: var(--accent);
+  border-color: var(--accent-soft);
+}
+
+/* === Selecao === */
 ::selection {
   background: var(--accent-soft);
   color: var(--ink);
+}
+
+/* === Mobile === */
+@media (max-width: 640px) {
+  .page,
+  body:not(:has(.page)) {
+    padding: 2rem 1.25rem 4rem;
+    margin: 0;
+    max-width: 100%;
+  }
+  body { font-size: 16px; }
+  h1 { font-size: 2rem; line-height: 1.15; }
+  h2 { font-size: 1.4rem; margin-top: 3rem; padding-top: 1.5rem; }
+  h3 { font-size: 1.1rem; margin-top: 2rem; }
+  h4 { font-size: 0.95rem; }
+  nav { padding: 1rem 0; margin-bottom: 2rem; }
+  nav a { margin: 0 0.4rem; font-size: 0.82rem; }
+  nav a + a::before { left: -0.5rem; }
+  .hero { padding-bottom: 2rem; }
+  .hero .lead { font-size: 1.05rem; }
+  blockquote { padding: 1.5rem; }
+  .product { padding: 1.25rem 1.4rem; }
+  .toc-box, ol#toc { padding: 1.5rem; }
+  .back-to-top { bottom: 1rem; right: 1rem; }
+  footer { margin-top: 4rem; }
 }
