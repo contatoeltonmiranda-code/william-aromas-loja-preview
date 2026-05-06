@@ -355,14 +355,108 @@ footer {
 }
 
 /* Fallback automatico: h3 + p adjacente nas listagens da loja vira card */
-main h3 + p,
-.shop h3 + p,
-body > h3 + p {
-  background: var(--surface);
-  border-left: 3px solid var(--accent);
-  border-radius: 4px;
-  padding: 1.25rem 1.5rem;
-  margin: 0.4rem 0 1.4rem;
+/* (NAO aplica em h3.subcategoria) */
+main h3:not(.subcategoria) + p,
+.shop h3:not(.subcategoria) + p,
+body > h3:not(.subcategoria) + p {
+  /* nada — agora todos produtos estao em <article class="product"> */
+}
+
+/* === Loja v2: Tabela de variacoes dentro do card === */
+.product table.variations {
+  margin: 0.85rem 0 0.5rem;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+  background: var(--paper);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.product table.variations thead th {
+  background: #fafaf7;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+}
+.product table.variations tbody td {
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink-soft);
+  vertical-align: top;
+}
+.product table.variations tbody tr:last-child td {
+  border-bottom: 0;
+}
+.product table.variations th.price-col,
+.product table.variations td.price-col {
+  text-align: right;
+  white-space: nowrap;
+}
+.product table.variations td.price-col {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Subcategoria dentro de categoria (ex: 16.1 — My Little Spa) */
+h3.subcategoria {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-muted);
+  font-weight: 600;
+  margin: 3rem 0 1.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--rule);
+}
+
+/* Linha de preco curto: **€90 — 60 min** | CTA: ... */
+.product .price-line {
+  margin: 0.6rem 0 0.3rem;
+  font-size: 0.95rem;
+}
+.product .price-line .price-tag {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 600;
+  margin-right: 0.6rem;
+}
+.product .price-line .cta-sep {
+  color: var(--rule);
+  margin: 0 0.4rem;
+}
+.product .price-line .cta-text {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.product .cta-line {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.product .cta-line strong {
+  color: var(--accent-muted);
+}
+
+.product .variations-label {
+  margin: 0.85rem 0 0.3rem;
+  font-size: 0.88rem;
+  color: var(--accent-muted);
+}
+
+/* Contador de produtos no TOC */
+.cat-count {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin-left: 0.25rem;
 }
 
 /* preco em destaque */
