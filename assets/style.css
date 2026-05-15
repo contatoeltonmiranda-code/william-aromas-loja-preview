@@ -573,3 +573,205 @@ body > h2#categorias + ol li a:hover {
   .back-to-top { bottom: 1rem; right: 1rem; }
   footer { margin-top: 4rem; }
 }
+
+
+/* ===== Round 2 — contato, marcas, condicoes, produtos fisicos ===== */
+
+/* Callout (aviso) */
+.callout {
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  padding: 1rem 1.4rem;
+  margin: 1.4rem 0;
+  font-size: 0.97rem;
+}
+.callout-warn { border-left-color: var(--accent); }
+.callout strong { color: var(--ink); }
+
+/* Cards de contato */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin: 1.5rem 0 2.5rem;
+}
+.contact-card {
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  padding: 1.4rem 1.6rem;
+  border-radius: 4px;
+}
+.contact-card h3 {
+  margin: 0 0 0.5rem;
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+.contact-card p { margin: 0.35rem 0; }
+.contact-card .contact-line { font-size: 1.02rem; color: var(--ink); }
+.contact-card .contact-sub { color: var(--muted); font-size: 0.88rem; }
+.contact-card .cta-line { margin-top: 0.8rem; font-size: 0.95rem; }
+.contact-card .cta-line a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+}
+.contact-card .cta-line a:hover { border-bottom-color: var(--ink); color: var(--ink); }
+
+@media (max-width: 640px) {
+  .contact-cards { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+/* Mapa embed */
+.map-embed {
+  margin: 1.5rem 0 2.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+/* Grid de marcas (4 colunas desktop, 2 tablet, 1 mobile) */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0 2.5rem;
+}
+.brand-card {
+  background: var(--surface);
+  border-top: 3px solid var(--accent);
+  padding: 1.4rem 1.3rem;
+  border-radius: 4px;
+}
+.brand-card h3 {
+  margin: 0 0 0.6rem;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+}
+.brand-card .brand-loc {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 0.2rem;
+}
+.brand-card p {
+  font-size: 0.92rem;
+  margin: 0;
+  line-height: 1.6;
+}
+@media (max-width: 980px) { .brand-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .brand-grid { grid-template-columns: 1fr; } }
+
+/* Condicoes gerais (loja) */
+.conditions-box {
+  background: #fbf3ee;
+  border: 1px solid #e8d4c4;
+  border-left: 4px solid var(--accent);
+  padding: 1.5rem 1.75rem;
+  border-radius: 4px;
+  margin: 1.5rem 0 2.5rem;
+}
+.conditions-box h3 {
+  margin: 0 0 0.8rem;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+.conditions-box ul { margin: 0; padding-left: 1.2rem; }
+.conditions-box li { margin: 0.35rem 0; color: var(--ink-soft); font-size: 0.95rem; }
+.conditions-box .conditions-note {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed #d8c0aa;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+/* Produto fisico — variante mais simples */
+.product-fisico {
+  border-left-color: var(--accent-soft);
+}
+.product-fisico h3 {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+}
+.product-placeholder {
+  background: #faf6f1;
+  border-left-style: dashed;
+}
+
+/* Subcategoria minima (h4 dentro de produtos fisicos) */
+.subcategoria-min {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-muted);
+  margin: 2rem 0 1rem;
+  font-weight: 600;
+}
+
+/* Produtos TOC mini */
+.prod-toc {
+  background: var(--surface-toc);
+  padding: 1.25rem 1.5rem;
+  border-radius: 4px;
+  list-style: none;
+  margin: 1rem 0 2rem;
+  padding-left: 1.5rem;
+}
+.prod-toc li { padding: 0.25rem 0; }
+.prod-toc li a { color: var(--ink-soft); text-decoration: none; font-weight: 500; }
+.prod-toc li a:hover { color: var(--accent); }
+
+/* Site footer (contato global, antes do bloco SEO) */
+.site-contact {
+  margin: 5rem 0 0;
+  padding: 2.5rem 0 1rem;
+  border-top: 1px solid var(--rule);
+}
+.site-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.site-contact-col h4 {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+.site-contact-col p {
+  font-size: 0.88rem;
+  margin: 0.3rem 0;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.site-contact-col a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+.site-contact-col a:hover { color: var(--accent); border-bottom-color: var(--accent-soft); }
+.site-contact-note {
+  font-size: 0.78rem !important;
+  font-style: italic;
+  color: var(--muted) !important;
+  margin-top: 0.6rem !important;
+}
+@media (max-width: 980px) { .site-contact-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .site-contact-grid { grid-template-columns: 1fr; gap: 1.2rem; } }
