@@ -840,6 +840,177 @@ body > h2#categorias + ol li a:hover {
 
 .product-fisico .price-line .badge { margin-left: 0.5rem; }
 
+/* === Round 2.3: produtos fisicos expandidos === */
+
+/* Headline persuasiva (acima do preco) */
+.product-fisico .prod-headline {
+  margin: 0.3rem 0 0.5rem;
+  font-family: var(--serif, "Playfair Display", Georgia, serif);
+  font-size: 1.02rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1.4;
+}
+
+/* Teaser visivel no card colapsado */
+.product-fisico .prod-teaser {
+  margin: 0.55rem 0 0.5rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+/* Accordion <details> nativo */
+.prod-details {
+  margin-top: 0.85rem;
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.65rem;
+}
+.prod-details > summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 0.55rem 0;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px; /* mobile-friendly toque */
+}
+.prod-details > summary::-webkit-details-marker { display: none; }
+.prod-details > summary::after {
+  content: "+";
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+.prod-details[open] > summary::after { content: "−"; }
+.prod-details > summary:hover { color: var(--accent-deep, #6b5347); }
+.prod-details > summary:focus-visible {
+  outline: 2px solid var(--accent-soft);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Animacao suave de abertura (sem libs) */
+.prod-details[open] > .prod-details-body {
+  animation: prod-fade-in 0.28s ease-out;
+}
+@keyframes prod-fade-in {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Conteudo do accordion */
+.prod-details-body {
+  padding: 0.6rem 0 0.4rem;
+}
+.prod-details-body .prod-desc p {
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: var(--ink);
+  margin: 0 0 0.85rem;
+}
+.prod-block {
+  margin: 1.1rem 0 0.5rem;
+}
+.prod-block h5 {
+  margin: 0 0 0.5rem;
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.prod-block ul,
+.prod-block .prod-benefits {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+.prod-block li {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0.2rem 0;
+}
+.prod-block p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.prod-block.prod-clinical {
+  background: #fbf6f1;
+  border-left: 3px solid var(--accent);
+  padding: 0.7rem 1rem 0.7rem 1.1rem;
+  border-radius: 3px;
+}
+.prod-block.prod-clinical .prod-clinical-label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--muted);
+  font-style: italic;
+}
+.prod-block.prod-warning {
+  background: #fcf3eb;
+  border-left: 3px solid #c08362;
+  padding: 0.6rem 1rem;
+  border-radius: 3px;
+}
+.prod-block.prod-warning h5 { color: #8a4a2a; }
+.prod-block.prod-offer {
+  background: #f6f0e2;
+  border-left: 3px solid #b8a458;
+  padding: 0.6rem 1rem;
+  border-radius: 3px;
+}
+.prod-ingredients {
+  font-size: 0.86rem !important;
+  color: var(--muted) !important;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+/* Accordion dentro de variant-family (visual ligeiramente diferenciado) */
+.prod-details-family {
+  margin-top: 1rem;
+  border-top: 1px dashed var(--rule);
+}
+.prod-details-family > summary { color: var(--accent); }
+
+/* Headline da familia */
+.variant-family-headline {
+  margin: 0 0 0.5rem;
+  font-family: var(--serif, "Playfair Display", Georgia, serif);
+  font-size: 0.98rem;
+  font-style: italic;
+  color: var(--accent);
+  line-height: 1.4;
+}
+
+/* Variant card: badges nos titulos */
+.variant-card h4 .badge { font-size: 0.62rem; padding: 0.15rem 0.4rem; }
+
+/* Mobile */
+@media (max-width: 720px) {
+  .product-fisico .prod-headline { font-size: 0.98rem; }
+  .product-fisico .prod-teaser { font-size: 0.88rem; }
+  .prod-details > summary { font-size: 0.74rem; padding: 0.7rem 0; }
+  .prod-details-body .prod-desc p { font-size: 0.9rem; }
+  .prod-block li, .prod-block p { font-size: 0.87rem; }
+}
+
 /* Site footer (contato global, antes do bloco SEO) */
 .site-contact {
   margin: 5rem 0 0;
